@@ -48,7 +48,6 @@ public class SelectDialog extends BaseBuilder {
                 document.replaceString(start, end, builder);
             }
         };
-
         WriteCommandAction.runWriteCommandAction(project, runnable);
         selectionModel.removeSelection();
     }

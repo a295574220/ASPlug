@@ -1,6 +1,6 @@
 <idea-plugin>
   <id>com.dialog.sjie</id>
-  <name>dialogPlug</name>
+  <name>SJIEPlug</name>
   <version>1.0</version>
   <vendor email="support@yourcompany.com" url="http://www.yourcompany.com">YourCompany</vendor>
 
@@ -32,9 +32,10 @@
     <!-- Add your actions here -->
     <group id="Plug.SJIE" text="SJIE" description="Plugs">
       <add-to-group group-id="MainMenu" anchor="last"/>
+          <action id="sjie.Resource" class="com.sjie.Resources.Resource" text="资源" description="Resource"/>
           <action id="sjie.Dialog" class="com.sjie.Dialog.Dialog" text="对话框" description="Dialog"/>
-          <action id="sjie.Design" class="com.sjie.Design.SingletonAction" text="单例" description="Dialog"/>
-          <action id="sjie.Behind" class="com.sjie.Behind.Behind" text="后台框架" description="Dialog">
+          <action id="sjie.Design" class="com.sjie.Design.SingletonAction" text="单例" description="Design"/>
+          <action id="sjie.Behind" class="com.sjie.Behind.Behind" text="后台框架" description="Behind">
           </action>
     </group>
   </actions>

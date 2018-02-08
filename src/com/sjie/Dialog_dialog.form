@@ -64,7 +64,7 @@
               </grid>
             </constraints>
             <properties>
-              <font size="16"/>
+              <font size="14"/>
               <model>
                 <item value="确认对话框"/>
                 <item value="单选对话框"/>

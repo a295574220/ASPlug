@@ -64,6 +64,7 @@
               </grid>
             </constraints>
             <properties>
+              <font size="14"/>
               <model>
                 <item value="普通式"/>
                 <item value="懒汉式"/>
