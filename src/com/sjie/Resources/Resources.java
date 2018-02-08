@@ -34,6 +34,9 @@ public class Resources extends BaseBuilder {
                     case 5:
                         builder=dcircle();
                         break;
+                    case 6:
+                        builder=bkselect();
+                        break;
                     default:
                         builder="";
                         break;
@@ -260,5 +263,16 @@ public class Resources extends BaseBuilder {
                 +"</shape>\n"
                 +"</item>\n"
                 +"</layer-list>\n";
+    }
+    private String bkselect(){
+        return "<selector xmlns:android=\"http://schemas.android.com/apk/res/android\"\n"
+                +"    android:enterFadeDuration=\"1000\"\n"
+                +"    android:exitFadeDuration=\"1500\">\n"
+                +"    <item\n"
+                +"    android:state_pressed=\"true\"\n"
+                +"    android:drawable=\"@color/colorAccent\"/>\n"
+                +"    <item\n"
+                +"    android:drawable=\"@color/colorPrimary\"/>\n"
+                +"</selector>\n";
     }
 }

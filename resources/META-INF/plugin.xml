@@ -33,10 +33,11 @@
     <group id="Plug.SJIE" text="SJIE" description="Plugs">
       <add-to-group group-id="MainMenu" anchor="last"/>
           <action id="sjie.Resource" class="com.sjie.Resources.Resource" text="资源" description="Resource"/>
+            <action id="sjie.Gradle" class="com.sjie.Gradle.Gradle" text="配置" description="Gradle"/>
           <action id="sjie.Dialog" class="com.sjie.Dialog.Dialog" text="对话框" description="Dialog"/>
           <action id="sjie.Design" class="com.sjie.Design.SingletonAction" text="单例" description="Design"/>
-          <action id="sjie.Behind" class="com.sjie.Behind.Behind" text="后台框架" description="Behind">
-          </action>
+          <action id="sjie.Behind" class="com.sjie.Behind.Behind" text="后台框架" description="Behind"/>
+
     </group>
   </actions>
 
