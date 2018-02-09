@@ -4,17 +4,19 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class Dialog_dialog extends JDialog {
+public class Control_dialog extends JDialog {
     private JPanel contentPane;
     private JButton buttonOK;
     private JButton buttonCancel;
     private JList list1;
     private OnPatternSelectedListener mListener;
-    public Dialog_dialog() {
+    private boolean flag=false;
+    public Control_dialog() {
         setContentPane(contentPane);
         setModal(true);
         getRootPane().setDefaultButton(buttonOK);
-        setTitle("对话框");
+        setTitle("组件");
+        flag=false;
         buttonOK.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 onOK();
@@ -81,6 +83,7 @@ public class Dialog_dialog extends JDialog {
         if (mListener != null) {
             mListener.onPatternSelected(list1.getSelectedIndex());
         }
+
     }
 
     private void onCancel() {
@@ -89,7 +92,7 @@ public class Dialog_dialog extends JDialog {
     }
 
     public static void main(String[] args) {
-        Dialog_dialog dialog = new Dialog_dialog();
+        Control_dialog dialog = new Control_dialog();
         dialog.pack();
         dialog.setVisible(true);
         System.exit(0);
