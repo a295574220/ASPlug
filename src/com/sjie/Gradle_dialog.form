@@ -68,6 +68,7 @@
               <model>
                 <item value="签名配置"/>
                 <item value="打包配置"/>
+                <item value="权限配置"/>
               </model>
             </properties>
           </component>

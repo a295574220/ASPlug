@@ -22,9 +22,9 @@ public class Gradles extends BaseBuilder {
                     case 1:
                         builder=appname();
                         break;
-//                    case 2:
-//                        builder=mullist();
-//                        break;
+                    case 2:
+                        builder=quanxian();
+                        break;
                     default:
                         builder="";
                         break;
@@ -79,5 +79,17 @@ public class Gradles extends BaseBuilder {
                 +"        }\n"
                 +"    }\n";
 
+    }
+    private String quanxian(){
+        return "<!--在SDCard中创建与删除文件权限 -->\n"
+                +"<uses-permission android:name=\"android.permission.MOUNT_UNMOUNT_FILESYSTEMS\"/>\n"
+                +"<!-- 往SDCard写入数据权限 -->\n"
+                +"<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\"/>\n"
+                +"<!-- 从SDCard读取数据权限 -->\n"
+                +"<uses-permission android:name=\"android.permission.READ_EXTERNAL_STORAGE\"/>\n"
+                +"<!--允许联网 -->\n"
+                +"<uses-permission android:name=\"android.permission.INTERNET\" />\n"
+                +"<!--获取GSM（2g）、WCDMA（联通3g）等网络状态的信息  -->\n"
+                +"<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\" />\n";
     }
 }

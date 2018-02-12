@@ -71,6 +71,8 @@
                 <item value="多选对话框"/>
                 <item value="日历对话框"/>
                 <item value="简单输入对话框"/>
+                <item value="等待对话框"/>
+                <item value="进度条对话框"/>
               </model>
             </properties>
           </component>

@@ -15,7 +15,6 @@ import com.sjie.BaseBuilder;
  * created on 2017/1/15.
  */
 public class SelectDialog extends BaseBuilder {
-
     @Override
     public void build(SelectionModel selectionModel, Project project, Document document,int select) {
         final int start = selectionModel.getSelectionStart();
@@ -40,6 +39,15 @@ public class SelectDialog extends BaseBuilder {
                     case 4:
                         builder=input();
                         break;
+                    case 5:
+                        builder=waitdialog();
+                        break;
+                    case 6:
+                        builder=processdialog();
+                        break;
+                    case 7:
+                        builder=mydialog();
+                        break;
                     default:
                         builder="";
                         break;
@@ -54,6 +62,7 @@ public class SelectDialog extends BaseBuilder {
     private String easy(){
                 StringBuilder stringBuilder=new StringBuilder();
                 stringBuilder.append("new AlertDialog.Builder(MainActivity.this)\n");
+                stringBuilder.append("        .setIcon(R.drawable.icon_dialog);\n");
                 stringBuilder.append("        .setTitle(\"This is Dialog\")\n");
                 stringBuilder.append("        .setMessage(\"Something important.\")\n");
                 stringBuilder.append("        .setCancelable(true)\n");
@@ -173,5 +182,64 @@ public class SelectDialog extends BaseBuilder {
         stringBuilder.append(".show();//显示\n");
         return stringBuilder.toString();
     }
+    private String waitdialog(){
+        return "ProgressDialog waitingDialog= new ProgressDialog(MainActivity.this);\n"
+                +"waitingDialog.setTitle(\"我是一个等待Dialog\");\n"
+                +"waitingDialog.setMessage(\"等待中...\");\n"
+                +"waitingDialog.setIndeterminate(true);\n"
+                +"waitingDialog.setCancelable(false);\n"
+                +"waitingDialog.show();\n";
+    }
+    private String processdialog(){
+        return "final int MAX_PROGRESS = 100;\n"
+                +"final ProgressDialog progressDialog =\n"
+                +"        new ProgressDialog(MainActivity.this);\n"
+                +"progressDialog.setProgress(0);\n"
+                +"progressDialog.setTitle(\"我是一个进度条Dialog\");\n"
+                +"progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);\n"
+                +"progressDialog.setMax(MAX_PROGRESS);\n"
+                +"progressDialog.show();\n"
+                +"/* 模拟进度增加的过程\n"
+                +" * 新开一个线程，每个100ms，进度增加1\n"
+                +" */\n"
+                +"new Thread(new Runnable() {\n"
+                +"    @Override\n"
+                +"    public void run() {\n"
+                +"        int progress= 0;\n"
+                +"        while (progress < MAX_PROGRESS){\n"
+                +"            try {\n"
+                +"                Thread.sleep(100);\n"
+                +"                progress++;\n"
+                +"                progressDialog.setProgress(progress);\n"
+                +"            } catch (InterruptedException e){\n"
+                +"                e.printStackTrace();\n"
+                +"            }\n"
+                +"        }\n"
+                +"        // 进度达到最大值后，窗口消失\n"
+                +"        progressDialog.cancel();\n"
+                +"    }\n"
+                +"}).start();\n";
+    }
+    private String mydialog(){
+        return "AlertDialog.Builder customizeDialog =\n"
+                +"        new AlertDialog.Builder(MainActivity.this);\n"
+                +"final View dialogView = LayoutInflater.from(MainActivity.this)\n"
+                +"        .inflate(R.layout.dialog_customize,null);\n"
+                +"customizeDialog.setTitle(\"我是一个自定义Dialog\");\n"
+                +"customizeDialog.setView(dialogView);\n"
+                +"customizeDialog.setPositiveButton(\"确定\",\n"
+                +"        new DialogInterface.OnClickListener() {\n"
+                +"    @Override\n"
+                +"    public void onClick(DialogInterface dialog, int which) {\n"
+                +"        // 获取EditView中的输入内容\n"
+                +"        EditText edit_text =\n"
+                +"                (EditText) dialogView.findViewById(R.id.edit_text);\n"
+                +"        Toast.makeText(MainActivity.this,\n"
+                +"                edit_text.getText().toString(),\n"
+                +"                Toast.LENGTH_SHORT).show();\n"
+                +"    }\n"
+                +"});\n"
+                +"customizeDialog.show();\n";
 
+    }
 }
